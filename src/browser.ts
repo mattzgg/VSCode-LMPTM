@@ -209,6 +209,7 @@ export default class Browser {
       const p: Promise<unknown>[] = []
       links.forEach(async (e: string) => {
         const pg = await this.newPage()
+        pg.setBypassCSP(true)
         await pg.setDefaultNavigationTimeout(0)
         await pg.goto(e)
       })
